@@ -69,3 +69,15 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+#FOSTRest
+fos_rest:
+    routing_loader:
+        default_format: json
+    employees:
+        type:     rest
+        host:     13.124.153.3/app_dev.php
+        resource: src\AppBundle\Controller\EmployeesController
+
+sensio_framework_extra:
+    view:    { annotations: false }

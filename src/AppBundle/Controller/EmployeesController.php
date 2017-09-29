@@ -1,27 +1,35 @@
 <?php
 namespace AppBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\Annotations\RouteResource;
 
 class EmployeesController extends FOSRestController
 {
-    public function getEmployeesAction()
+    /**
+     * @return array
+     * @View()
+     */
+    public function showEmployeeAction($empId)
     {
-        //$data = ...; // get data, in this case list of users.
-        $data = ['Jiwon','Jamie','John'];
-        // $view = $this->view($data, 200)
-        //     ->setTemplate("MyBundle:Users:getUsers.html.twig")
-        //     ->setTemplateVar('users');
+        $employee = $this->getDoctrine()
+        ->getRepository(Employees::class)
+        ->find($empId);
 
-        // return $this->handleView($view);
-        return $data;
+        if(!$employee)
+        {
+            return $this->view(null,400);
+        }
+
+        return $this->view((array) $employee,200);
+
     }
 
-    public function redirectAction()
-    {
-        $view = $this->redirectView($this->generateUrl('some_route'), 301);
-        // or
-        $view = $this->routeRedirectView('some_route', array(), 301);
-
-        return $this->handleView($view);
-    }
+    // public function redirectAction()
+    // {
+    //     $view = $this->redirectView($this->generateUrl('some_route'), 301);
+    //     // or
+    //     $view = $this->routeRedirectView('some_route', array(), 301);
+    //
+    //     return $this->handleView($view);
+    // }
 }
