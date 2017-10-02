@@ -5,10 +5,6 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
 
 class EmployeesController extends FOSRestController
 {
-    /**
-     * @return array
-     * @View()
-     */
     public function showEmployeeAction($empId)
     {
         $employee = $this->getDoctrine()
