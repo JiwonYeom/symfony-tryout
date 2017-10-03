@@ -1,24 +1,20 @@
 <?php
-namespace AppBundle\Controller;
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations\RouteResource;
-
-class EmployeesController extends FOSRestController
-{
-    public function showEmployeeAction($empId)
-    {
-        $employee = $this->getDoctrine()
-        ->getRepository(Employees::class)
-        ->find($empId);
-
-        if(!$employee)
-        {
-            return $this->view(null,400);
-        }
-
-        return $this->view((array) $employee,200);
-
-    }
+// class EmployeesController
+// {
+//     public function getEmployeesAction($empId)
+//     {
+//         $employee = $this->getDoctrine()
+//         ->getRepository(Employees::class)
+//         ->find($empId);
+//
+//         if(!$employee)
+//         {
+//             return $this->view(null,400);
+//         }
+//
+//         return $this->view((array) $employee,200);
+//
+//     }   // "get_employees"      [GET] /employees/{id}
 
     // public function redirectAction()
     // {
@@ -28,4 +24,4 @@ class EmployeesController extends FOSRestController
     //
     //     return $this->handleView($view);
     // }
-}
+// }

@@ -1,3 +1,8 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+# employees:
+#     type:     rest
+#     host:     13.124.153.3/app_dev.php
+#     resource: src\AppBundle\Controller\EmployeesController
