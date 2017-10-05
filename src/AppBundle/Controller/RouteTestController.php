@@ -22,7 +22,7 @@ class RouteTestController extends Controller
     *
     * @Route("/users/{id}", name="user_show", requirements={"id": "\d+"})
     */
-    public function showUser($id)
+    public function showUserAction($id)
     {
         return new Response(
             '<html><body>'.$id.'</body></html>'
@@ -32,10 +32,22 @@ class RouteTestController extends Controller
     /**
     * @Route("/users/{slug}", name="address_show")
     */
-    public function showAddress($slug)
+    public function showAddressAction($slug)
     {
         return new Response(
             '<html><body>'.$slug.'</body></html>'
+        );
+    }
+
+    // default values to placeholder - or use default parameter setting  like `defaults={"id": 1}`
+    /**
+    * @Route("/profile/{id}", name="profile", requirements={"id": "\d+"})
+    *
+    */
+    public function showProfileAction($id=1)
+    {
+        return new Response(
+            '<html><body>'.$id.'</body></html>'
         );
     }
 }
