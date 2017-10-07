@@ -1,27 +1,14 @@
 <?php
-// class EmployeesController
-// {
-//     public function getEmployeesAction($empId)
-//     {
-//         $employee = $this->getDoctrine()
-//         ->getRepository(Employees::class)
-//         ->find($empId);
-//
-//         if(!$employee)
-//         {
-//             return $this->view(null,400);
-//         }
-//
-//         return $this->view((array) $employee,200);
-//
-//     }   // "get_employees"      [GET] /employees/{id}
 
-    // public function redirectAction()
-    // {
-    //     $view = $this->redirectView($this->generateUrl('some_route'), 301);
-    //     // or
-    //     $view = $this->routeRedirectView('some_route', array(), 301);
-    //
-    //     return $this->handleView($view);
-    // }
-// }
+namespace AppBundle\Controller;
+
+use FOS\RestBundle\Routing\ClassResourceInterface;
+
+class EmployeesController implements ClassResourceInterface
+{
+    public function getUsersAction()
+    {
+        $pArray = ['test1', 'test2', 'test3'];
+        return $pArray;
+    } // "get_users"            [GET] /users
+}
